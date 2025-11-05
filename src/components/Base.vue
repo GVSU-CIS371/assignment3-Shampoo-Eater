@@ -1,8 +1,12 @@
 <template>
-  <div class="baseBeverage"></div>
+  <div class="baseBeverage" :style="{ backgroundColor: currentBase.color }"></div>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+  import { useBeverageStore } from "../stores/beverageStore";
+  import { storeToRefs } from "pinia";
+  const { currentBase } = storeToRefs(useBeverageStore());
+</script>
 
 <style scoped>
 .baseBeverage {
